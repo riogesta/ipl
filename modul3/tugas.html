@@ -1,0 +1,137 @@
+<!-- 
+ | 3411191129.RIO GESTAVITO.DSE-C
+ |-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas implementasi interface</title>
+</head>
+<body>
+    <form action="#" name="formTugas" onsubmit="return checks()">
+        <table>
+            <tr>
+                <td><input type="text" name="username" id="username" placeholder="username"></td>
+            </tr>
+            <tr>
+                <td><input type="password" name="password" id="pass" placeholder="password"></td>
+            </tr>
+            <tr>
+                <td><input type="password" name="repeat" id="repeat" placeholder="Ulangi password"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="email" id="email" placeholder="email"></td>
+            </tr>
+            <tr>
+                <td><input type="number" name="telp" id="telp" placeholder="nomor telepon"></td>
+            </tr>
+            <tr>
+                <td><textarea id="alamat" style="width: 167px;"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+
+        let username = document.getElementById('username');
+        let password = document.getElementById('pass');
+        let pass_repeat = document.getElementById('repeat');
+        let email = document.getElementById('email');
+        let telp = document.getElementById('telp');
+        let alamat = document.getElementById('alamat');
+        
+        const checks = function(){
+            
+            if(user_check() && pass_check() && email_check() && telp_check() && alamat_check()){
+                return true;
+            } else {
+                let pesan = 'Peringatan !';
+                if (!user_check()) {
+                    pesan += '\n- username minimal 3-15 karakter !';
+                }
+                if (!pass_check()) {
+                    if (pass_check() == undefined) {
+                        pesan += '\n- masukkan password yang sama !';
+                    } else {
+                        pesan += '\n- password minimal 4 karakter atau lebih !';
+                    }
+                }
+                if (!email_check()) {
+                    pesan += '\n- masukkan format email yang benar !';
+                }
+                if(!telp_check()) {
+                    pesan += '\n- masukkan nomer telepon yang benar !';
+                }
+                if(!alamat_check()) {
+                    pesan += '\n- alamat tidak boleh kosong !';
+                }
+                alert(pesan);
+                return false;
+            }
+        }
+
+        const user_check = function(){
+            
+            let re_username = /(\w){3,15}/g;
+
+            if (username.value.match(re_username) && username.value.length <= 15) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        const pass_check = function(){
+            
+            let re_password = /(\w).{4,}/g;
+
+            if (password.value.match(re_password)) {
+                if (password.value === pass_repeat.value) {
+                    return true;
+                } else {
+                    return undefined;
+                }
+            } else {
+                return false;
+            }
+        }
+
+        const email_check = function(){
+
+            let re_email = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;
+
+            if (email.value.match(re_email)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        const telp_check = function(){
+
+            let re_telp = /\+?([ -]?\d+)+|\(\d+\)([ -]\d+)/g;
+
+            
+            if (telp.value.match(re_telp) && telp.value.length >= 11 && telp.value.length <= 12) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        const alamat_check = function(){
+
+            if (!alamat.value == '') {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

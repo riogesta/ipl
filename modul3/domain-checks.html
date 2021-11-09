@@ -1,0 +1,50 @@
+<!--
+ | 3411191129.RIO GESTAVITO.DSE-C
+ |-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>domain checks</title>
+</head>
+<body>
+    <form action="" name="myForm" onsubmit="return validateForm()" method="post">
+        <table>
+            <tr>
+                <td>NIM</td>
+                <td><input type="text" id="nim" name="nim"></td>
+                <td>NIM harus 10 digit.</td>
+            </tr>
+            <tr>
+                <td>Semester</td>
+                <td><input type="text" id="sem" name="sem"></td>
+                <td>semester tidak boleh kurang dari 1 dan lebih dari 12</td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        function validateForm()
+        {
+            var nim = document.myForm.nim.value;
+            var sem = document.myForm.sem.value;
+
+            if (nim.length != 10) {
+                alert('NIM harus 10 digit!');
+                return false;
+            }
+            if ( (sem<1) || (sem>12) ) {
+                alert('semester harus di isi 1-12');
+                return false;
+            } else if (isNaN(sem)) {
+                alert('tidak boleh memasukan huruf!');
+                return false;
+            }
+
+            return true
+        }
+    </script>
+</body>
+</html>

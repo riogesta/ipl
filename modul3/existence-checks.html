@@ -1,0 +1,28 @@
+<!--
+ | 3411191129.RIO GESTAVITO.DSE-C
+ |-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Existence</title>
+</head>
+<body>
+    <form name="myForm" action="#" onsubmit="return validationForm()">
+    <input type="text" id="username" name="username">
+    <input type="submit" value="submit">
+    </form>
+
+    <script type="text/javascript">
+        function validationForm()
+        {
+            var user = document.myForm.username.value;
+            if (user == ""){
+                alert("username tidak boleh kosong");
+                return false;
+            } else {
+                return true;
+            }
+        }
+    </script>
+</body>
+</html>
