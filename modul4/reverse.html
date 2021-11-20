@@ -1,0 +1,24 @@
+<!-- 
+ | 3411191129.RIO GESTAVITO.DSE-C
+ |-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="rev-input">
+    <p id="rev-output"></p>
+
+    <script>
+        const rev = document.getElementById('rev-input');
+        const balik = rev.addEventListener('input', function(){
+            let reversed = rev.value.split('').reverse().join('');
+            document.getElementById('rev-output').innerHTML = reversed;
+        })
+    </script>
+</body>
+</html>

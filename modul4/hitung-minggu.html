@@ -1,0 +1,35 @@
+<!-- 
+ | 3411191129.RIO GESTAVITO.DSE-C
+ |-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitung hari minggu</title>
+</head>
+<body>
+    <p id="minggu">jumlah hari minggu : </p>
+
+    <script>
+        const hitungMinggu = function(){
+
+            let minggu = 0;
+            for (let tahun = 1901 ; tahun <= 2000 ; tahun++) {
+                for (let bulan = 1 ; bulan <= 12 ; bulan++) {
+                    let date = new Date(`${bulan}/1/${tahun}`);
+                    if (date.getDay() == 0) {
+                        minggu++;
+                    }
+                }
+            }
+            document.getElementById('minggu').innerHTML += minggu;
+            
+        }
+
+        hitungMinggu();
+
+    </script>
+</body>
+</html>
